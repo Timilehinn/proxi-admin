@@ -1,0 +1,24 @@
+.container{
+    width: 80%;
+    display: flex;
+    height: 100vh;
+    padding: 1rem;
+    flex-direction: column
+}
+
+.grid_container{
+    height: 90vh;
+    width: 100%;
+}
+.grid_container_header{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (min-width: 0px) and (max-width: 767px) { 
+    .container{
+        width:100%
+    }
+}
