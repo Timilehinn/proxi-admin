@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './sidenav.module.css';
-import { FiUsers } from 'react-icons/fi'
+import { FiUsers, FiLogOut } from 'react-icons/fi'
 import { MdReport } from 'react-icons/md'
 import { AiFillSetting } from 'react-icons/ai'
 import { GiShop } from 'react-icons/gi'
@@ -16,7 +16,10 @@ export default function SideBar(){
         cursor:'default'
     }
 
-
+    const logOut=()=>{
+        localStorage.removeItem('mfa_token');
+        history.push('/')
+    }
     return(
         <div className={styles.sidebar}>
             <Link style={{color: 'grey', textDecoration: 'none'}} to="/dashboard/home">
@@ -52,7 +55,9 @@ export default function SideBar(){
                 <AiFillSetting color="white" style={{paddingRight:'5px'}}/>Roles and Priviledges
             </p>
             <div style={{height:'1px', backgroundColor:"lightgrey"}} />
-
+            <p style={{color: 'orange'}} onClick={logOut}>
+                <FiLogOut color="orange" style={{paddingRight:'5px'}}/>Logout
+            </p>
         </div>
     )
 } 

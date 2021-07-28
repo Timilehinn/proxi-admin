@@ -202,10 +202,13 @@ function UsersView() {
                     {/* MODAL */}
                     <div>
                         <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                        {gettingUser? <></>:(
-                            <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-                                Modal title
-                            </DialogTitle>
+                        {gettingUser? <></>:( 
+                            <div style={{width: '100%', display: 'flex', justifyContent: 'flex-end'}}>
+                                <IconButton aria-label="close" style={{width: 'auto'}} onClick={handleClose}>
+                                    <CloseIcon />
+                                </IconButton>
+                            </div>
+                            
                         )}
                         
                         <br />

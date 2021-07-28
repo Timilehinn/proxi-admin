@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import styles from './dashheader.module.css'
 import {AuthContext} from '../../contexts/authContextApi'
 import { FaBell, FaTimes } from 'react-icons/fa'
-import { FiUsers } from 'react-icons/fi'
+import { FiUsers, FiLogOut } from 'react-icons/fi'
 import { MdReport } from 'react-icons/md'
 import { AiFillSetting } from 'react-icons/ai'
 import { GiShop } from 'react-icons/gi'
@@ -10,6 +10,7 @@ import { RiDashboardFill, RiAdminFill } from 'react-icons/ri'
 import { Link, useHistory } from 'react-router-dom'
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import SideBar from '../SideNav/SideBarNav';
 
 
 function DashHeader() {
@@ -19,7 +20,11 @@ function DashHeader() {
     const [ dropDownDisplay, setDropDownDisplay ] = useState('none')
     const [ dropDownBack, setDropDownBack ] = useState('none')
     const { userDetails } = useContext(AuthContext)
-     
+
+    const logOut=()=>{
+        localStorage.removeItem('mfa_token');
+        history.push('/')
+    }
 
     const closeDrawer = ()=>{
         setShowSideBar(-100); 
@@ -55,7 +60,6 @@ function DashHeader() {
                         <IconButton aria-label="close" style={{width: 'auto'}} onClick={closeDrawer}>
                             <CloseIcon style={{color: 'white'}} />
                         </IconButton>
-                        {/* <FaTimes onClick={c} size={25} /> */}
                     </div>
                     <Link style={{color: 'white', textDecoration: 'none'}} to="/dashboard/home">
                         <p>
@@ -82,6 +86,9 @@ function DashHeader() {
                     <div style={{height:'1px', backgroundColor:"lightgrey"}} />
                     <p style={{color: "white"}}><MdReport color="white" style={{paddingRight:'5px'}}/>Reports</p>
                     <p style={{color: "white"}}><AiFillSetting color="white" style={{paddingRight:'5px'}}/>Roles and Priviledges</p>
+                    <p style={{color: 'orange'}} onClick={logOut}>
+                        <FiLogOut color="orange" style={{paddingRight:'5px'}}/>Logout
+                    </p>
                 </div>
             </div>
             <div className={styles.backmodal} onClick={()=>{setShowSideBar(-100); showBackModal('hidden')}} style={{visibility:backModal}}></div>
