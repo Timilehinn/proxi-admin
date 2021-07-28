@@ -1,8 +1,9 @@
 import React,{ useState, useEffect, useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import axios from 'axios'
-import {AuthContext} from '../contexts/authContextApi'
-import { url } from './urls'
+import styles from './style.module.css'
+import {AuthContext} from '../../contexts/authContextApi'
+import { url } from '../../utils/urls'
 
   const ProtectedRoute = ({ component: Component, ...rest }) => {
 
@@ -52,12 +53,9 @@ import { url } from './urls'
   }, [])
 
  if (!isTokenValidated) return (
-  //  <div className={styles.the_box}>
-  //     <span className={styles.loader}></span>
-  //  </div>
-  <div>
-    loading ...
-  </div>
+   <div className={styles.the_box}>
+      <span className={styles.loader}></span>
+   </div>
  )
 
   return (<Route {...rest}

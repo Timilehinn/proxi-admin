@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import DashboardHome from './pages/Dashboard/HomeView/home'
 import UsersView from './pages/Dashboard/UsersView/users'
 import VendorsView from './pages/Dashboard/VendorsView/vendors'
-import ProtectedRoute from './utils/protectedRoute';
+import ProtectedRoute from './components/Protectedroute/protectedRoute';
 function App() {
   return (
     <Switch>
