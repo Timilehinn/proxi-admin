@@ -43,18 +43,21 @@ export default function SideBar(){
                 </p>
             </Link>
             
-            <p>
-                <RiAdminFill color="white" 
-                style={{paddingRight:'5px'}}/>Admins
-            </p>
-            <div style={{height:'1px', backgroundColor:"lightgrey"}} />
+            <Link style={{color: 'grey', textDecoration: 'none'}} to="/dashboard/admins">
+                <p>
+                    <RiAdminFill color="white" 
+                    style={{paddingRight:'5px'}}/>Admins
+                </p>
+            </Link>
+           
+            <div style={{height:'.5px', backgroundColor:"lightgrey"}} />
             <p>
                 <MdReport color="white" style={{paddingRight:'5px'}}/>Reports
             </p>
             <p>
                 <AiFillSetting color="white" style={{paddingRight:'5px'}}/>Roles and Priviledges
             </p>
-            <div style={{height:'1px', backgroundColor:"lightgrey"}} />
+            <div style={{height:'.5px', backgroundColor:"lightgrey"}} />
             <p style={{color: 'orange'}} onClick={logOut}>
                 <FiLogOut color="orange" style={{paddingRight:'5px'}}/>Logout
             </p>

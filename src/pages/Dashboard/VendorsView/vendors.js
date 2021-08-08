@@ -90,7 +90,6 @@ function VendorsView() {
       });
 
     const handleSelection=(e)=>{
-        console.log(e)
         setSelection(e)
     }
 
@@ -153,10 +152,8 @@ function VendorsView() {
                 setVendor(res.data.vendor)
                 setDetails(res.data.vendor?.basic_info)
                 setFoodmenu(res.data.vendor?.foodmenu)
-                console.log(vendor, ' lsss')
                 setGettingUser(false)
             }else{
-                console.log(res.data.message)
                 setGettingUser(false)
           }
         }
@@ -190,14 +187,13 @@ function VendorsView() {
 
     return (
         <>
-            <Header />
+            <Header title="Vendors" />
             <main style={{display: 'flex', flexDirection: 'row'}}>
                 <SideBar />
                 {/* <div className={styles.container}> */}
                 <div className={sharedStyle.container}>
                     <div className={sharedStyle.grid_container}>
                         <div className={sharedStyle.grid_container_header}>
-                            <h3 style={{margin: '.3rem'}}>Vendors</h3>
                             {selection.length> 0? (
                                 <div style={{display: 'flex', alignItems: 'center' }}>
                                     <Approve selection={selection} setSelection={setSelection} fetchusers={getVendors} />

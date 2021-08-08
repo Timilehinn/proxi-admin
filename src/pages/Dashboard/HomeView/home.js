@@ -12,6 +12,9 @@ import { RiExchangeDollarFill } from 'react-icons/ri'
 import { BiTransferAlt } from 'react-icons/bi'
 import { url } from '../../../utils/urls'
 import { useHistory } from 'react-router-dom'
+import { Doughnut } from 'react-chartjs-2';
+import { formatCurrency } from '../../../utils/formatCurrency';
+
 
 
 function Home() {
@@ -23,7 +26,93 @@ function Home() {
     const [ dailyActiveUsers, setDailyActiveUsers ] = useState(0)
     const [ dailyActiveVendors, setDailyActiveVendors ] = useState(0)
     const [ transactions, setTransactions ] = useState([])
-    
+    const [ daily, setDaily ] = useState([])
+    const [ weekly, setWeekly ] = useState([])
+
+
+    const _daily = {
+        labels: [
+            `Total: ${formatCurrency(daily?.dailytotal?.credit + daily?.dailytotal?.debit)}`,
+            `Debits: ${formatCurrency(daily?.dailytotal?.debit)}`, 
+            `Credits: ${formatCurrency(daily?.dailytotal?.credit)}`,
+        ],
+        datasets: [
+          {
+            label: 'Number of transactions',
+            data: daily.daily,
+            backgroundColor: [
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 99, 132, 0.2)',
+            ],
+            borderColor: [
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 99, 132, 1)',
+            ],
+            borderWidth: 1,
+          },
+        ],
+    };
+
+    const _weekly = {
+        // labels: ['Debits', 'Credits'],
+        labels: [
+            `Total: ${formatCurrency(weekly?.weeklytotal?.credit + weekly?.weeklytotal?.debit)}`,
+            `Debits: ${formatCurrency(weekly?.weeklytotal?.debit)}`, 
+            `Credits: ${formatCurrency(weekly?.weeklytotal?.credit)}`,
+        ],
+        datasets: [
+          {
+            label: 'Number of transactions',
+            data: weekly.weekly,
+            backgroundColor: [
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 99, 132, 0.2)'
+            ],
+            borderColor: [
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 99, 132, 1)'
+            ],
+            borderWidth: 1,
+          },
+        ],
+    };
+
+    const dailyReport=()=>{
+        axios.get(`${url.baseUrl}v1/admin/transaction-report/daily`, {
+            headers: {
+                'Authorization': 'Bearer ' + token
+        }})
+        .then(res=>{
+            console.log(res.data)
+            setDaily(res.data)
+        })
+        .catch(err=>{
+            console.log(err);
+            setDaily([0, 0])
+        })
+    }
+
+    const weeklyReport=()=>{
+        axios.get(`${url.baseUrl}v1/admin/transaction-report/weekly`, {
+            headers: {
+                'Authorization': 'Bearer ' + token
+        }})
+        .then(res=>{
+            console.log(res.data)
+            setWeekly(res.data)
+        })
+        .catch(err=>{
+            setWeekly([0, 0])
+            console.log(err)
+        })
+    }
+
+    useEffect(()=>{
+        dailyReport();
+        weeklyReport();
+    },[])
+
+
     useEffect(()=>{
         axios.get(`${url.baseUrl}v1/admin/all-users-count`, {
             headers: {
@@ -74,7 +163,7 @@ function Home() {
 
     return (
         <>
-        <Header />
+        <Header title="Home" />
         <main style={{display: 'flex', flexDirection: 'row'}}>
             <SideBar />
             <div className={styles.fluid}>
@@ -95,22 +184,32 @@ function Home() {
                     <div className={styles.box}>
                         <BiTransferAlt color="grey" size="40" />
                         <span>Total Transactions</span>
-                        <span>{transactions.count}</span>
+                        <span>{transactions?.count}</span>
                     </div>
                     <div className={styles.box}>
                         <span style={{color: 'grey', fontSize: '2.5rem', fontWeight: 'bold'}}>&#8358;</span>
                         <span>Total Amount</span>
-                        <span>&#8358;{transactions.totalAmount}</span>
+                        <span>{formatCurrency(transactions?.totalAmount)}</span>
                     </div>
                 </div>
 
 
                 <div className={styles.container2}>
-                    <p>Latest reports</p>
-                    <div>lorem ipsum</div>
-                    <div>lorem ipsum</div>
-                    <div>lorem ipsum</div>
-                    <span>view all reports</span>
+                    <div>
+                        <h3>Today</h3>
+                        <Doughnut 
+                            data={_daily}
+                        />
+                    </div>
+                    <div>
+                        <h3>This week</h3>
+                        <Doughnut 
+                            data={_weekly}
+                        />
+                    </div>
+                    {/* <span>
+                        <h5>Transaction reports</h5>
+                    </span> */}
                 </div>
             </div>
             

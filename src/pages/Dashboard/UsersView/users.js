@@ -74,7 +74,6 @@ function UsersView() {
       });
 
     const handleSelection=(e)=>{
-        console.log(e)
         setSelection(e)
     }
 
@@ -138,7 +137,6 @@ function UsersView() {
                 setUser(res.data.user)
                 setGettingUser(false)
             }else{
-                console.log(res.data.message)
                 setGettingUser(false)
           }
         }
@@ -172,13 +170,12 @@ function UsersView() {
 
     return (
         <>
-            <Header />
+            <Header title="Users" />
             <main style={{display: 'flex', flexDirection: 'row'}}>
                 <SideBar />
                 <div className={sharedStyle.container} >
                     <div className={sharedStyle.grid_container} >
                         <div className={sharedStyle.grid_container_header}>
-                            <h3 style={{margin: '.3rem'}}>Users</h3>
                             {selection.length> 0? (
                                 <div style={{display: 'flex', alignItems: 'center' }}>
                                     <Approve selection={selection} setSelection={setSelection} fetchusers={fetchUsers} />

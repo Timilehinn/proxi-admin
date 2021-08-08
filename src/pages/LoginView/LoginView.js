@@ -4,7 +4,7 @@ import axios from 'axios'
 import {AuthContext} from '../../contexts/authContextApi'
 import { url } from '../../utils/urls'
 import { useHistory, Link } from 'react-router-dom'
-import { RiUser6Line } from 'react-icons/ri'
+import { RiAdminFill } from 'react-icons/ri'
 import { FaTimes } from 'react-icons/fa'
 
 const Loader=()=>{
@@ -21,36 +21,42 @@ function LoginView() {
     const [isLoading , setIsLoading] = useState(false);
     const [ errorBox, setErrorBox ] = useState('none')
     const [ email, setEmail ] = useState('')
-    const [ password, setPassword ] = useState('')
+    const [ password, setPassword ] = useState('');
+    const [ errMsg, setErrMsg ] = useState('')
     const { setAuth, setUserDetails } = useContext(AuthContext);
+
+
     const Login = async (e)=>{
         e.preventDefault();
         setIsLoading(true)
         axios.post(`${url.baseUrl}v1/auth/login`, { email, password })
         .then(res=>{
-            localStorage.setItem("mfa_token", res.data.data.token);
+            setIsLoading(false);
             setAuth(true);
-            setIsLoading(false)
+            localStorage.setItem("mfa_token", res.data.data.token);
             history.push('/dashboard/home')
         })
-        .catch(err=>{
+        .catch(error=>{
             history.push('/')
             setIsLoading(false)
-            setAuth(true);
-            setErrorBox()
-            console.log(err)
+            setAuth(false);
+            setErrorBox('flex');
+            const err = error
+            if (err.response) {
+                setErrMsg(err.response.data.message)
+            }
         })
     }
 
     return (
         <main className={styles.main}>
-            <RiUser6Line size="70" color="rgb(21, 21, 226)" />
+            <RiAdminFill size="50" color="rgb(21, 21, 226)" />
             <p style={{textAlign:'center',color:"rgb(21, 21, 226)",marginTop:'1rem',marginBottom:'1rem',fontSize:'1.2rem'}}>
                 Login as Admin. 
             </p>
             <form className={styles.form} onSubmit={(e)=>Login(e)}>
                 <div onClick={()=>setErrorBox('none')} style={{display:errorBox}} className={styles.error_box}>
-                    <span>Invalid email and or password.</span>
+                    <span>{errMsg}</span>
                     <FaTimes size={10} color="grey" style={{cursor:'pointer'}} onClick={()=>setErrorBox('none')} />
                 </div>
                 <input placeholder="email" value={email} onChange={(e)=>setEmail(e.target.value)} required />

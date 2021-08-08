@@ -14,7 +14,8 @@ import { url } from '../../utils/urls'
 function Disable(props) {
     let token = localStorage.getItem('mfa_token');
     const [ isDeleting, setIsDeleting ] = useState(false)
-    const [ selection, setSelection ] = useState(props.selection)
+    console.log(props.selection, ' disable finction');
+    // const [ selection, setSelection ] = useState(props.selection)
     const history = useHistory()
     const [open, setOpen] = useState(false);
     const toastsettings ={
@@ -39,23 +40,21 @@ function Disable(props) {
         let token = localStorage.getItem("mfa_token");
         setIsDeleting(true)
         const res = await axios.post(`${url.baseUrl}v1/admin/disable-users`,
-        {ids:selection},{
+        {ids: props.selection},{
             headers: {
                 'Authorization': 'Bearer ' + token
             }
         })
-        console.log(res)
         if(res.data.status){
             props.fetchusers()
             props.setSelection([])
             setIsDeleting(false);
-            setSelection([])
+            // setSelection([])
         }else{
             setIsDeleting(false)
         }
     }
     useEffect(()=>{
-    console.log(props)
 
     },[])
     return (
@@ -69,7 +68,7 @@ function Disable(props) {
             { isDeleting? <LinearProgress/>:'' }
                 <DialogTitle id="form-dialog-title">Disable</DialogTitle>
                 <DialogContent>
-                Disable {selection.length} selected users(s). Proceed?
+                Disable {props.selection.length} selected users(s). Proceed?
                 </DialogContent>
                 <DialogActions>
                 <Button style={{textTransform:'capitalize'}} onClick={handleClose}>

@@ -13,7 +13,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import SideBar from '../SideNav/SideBarNav';
 
 
-function DashHeader() {
+function DashHeader(prop) {
     const history = useHistory()
     const [ showSideBar, setShowSideBar ] = useState(-100);
     const [ backModal, showBackModal ] = useState('hidden');
@@ -43,13 +43,11 @@ function DashHeader() {
                     </div>
                     <div className={styles.nav_col1}>
                         <h3 className={styles.logo}>FoodApp</h3>
-                        <Link to="/home" style={{color:'black',textDecoration:'none'}}>
-                            <h4 style={{color:'grey'}}>Admin</h4>
-                        </Link>
+                        <h4 style={{color:'grey'}}>{prop.title}</h4>
                     </div>
                     <div className={styles.navitems}>
                         <span><FaBell /></span>
-                        <span><h3>{userDetails.email}</h3></span>
+                        <span><h2 style={{textTransform: 'capitalize'}}>{userDetails.email.substring(0,1)}</h2></span>
                     </div>
             </div>
 
@@ -81,8 +79,9 @@ function DashHeader() {
                             style={{paddingRight:'5px'}}/>Vendors
                         </p>
                     </Link>
-                    
-                    <p style={{color: "white"}}><RiAdminFill color="white" style={{paddingRight:'5px'}}/>Admins</p>
+                    <Link style={{color: 'white', textDecoration: 'none'}} to="/dashboard/admins">
+                        <p style={{color: "white"}}><RiAdminFill color="white" style={{paddingRight:'5px'}}/>Admins</p>
+                    </Link>
                     <div style={{height:'1px', backgroundColor:"lightgrey"}} />
                     <p style={{color: "white"}}><MdReport color="white" style={{paddingRight:'5px'}}/>Reports</p>
                     <p style={{color: "white"}}><AiFillSetting color="white" style={{paddingRight:'5px'}}/>Roles and Priviledges</p>
