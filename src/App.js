@@ -7,6 +7,9 @@ import UsersView from './pages/Dashboard/UsersView/users'
 import VendorsView from './pages/Dashboard/VendorsView/vendors'
 import AdminsView from './pages/Dashboard/AdminsView/admins'
 import ProtectedRoute from './components/Protectedroute/protectedRoute';
+import Errorpage from './pages/404.js'
+
+
 function App() {
   return (
     <Switch>
@@ -16,8 +19,8 @@ function App() {
       <ProtectedRoute path='/dashboard/users' component={UsersView} exact />
       <ProtectedRoute path='/dashboard/vendors' component={VendorsView} exact />
       <ProtectedRoute path='/dashboard/admins' component={AdminsView} exact />
-      {/* <Route path="*" component={()=>{return (<h1>error page</h1>)}} /> */}
-  </Switch>
+      <Route path="*" component={Errorpage} />
+    </Switch>
   );
 }
 
