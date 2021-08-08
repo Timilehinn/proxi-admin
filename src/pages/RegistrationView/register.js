@@ -96,15 +96,15 @@ function RegisterView(props) {
             {verified? (
                 <>
                     <RiAdminFill size="50" color="rgb(21, 21, 226)" />
-                    <p style={{textAlign:'center',color:"rgb(21, 21, 226)",marginTop:'1rem',marginBottom:'1rem',fontSize:'1.2rem'}}>
-                        Register Account 
+                    <p style={{textAlign:'center',color:"rgb(21, 21, 226)",marginTop:'1rem',marginBottom:'1rem',fontSize:'.95rem'}}>
+                        Create Account 
                     </p>
                     <form className={styles.form} onSubmit={(e)=>Register(e)}>
                         <div onClick={()=>setErrorBox('none')} style={{display:errorBox}} className={styles.error_box}>
                             <span>{errMsg}</span>
                             <FaTimes size={10} color="grey" style={{cursor:'pointer'}} onClick={()=>setErrorBox('none')} />
                         </div>
-                        <input className={styles.form_input} value={email} disabled={true} required />
+                        <input className={styles.form_input} value={email} disabled required />
                         <input className={styles.form_input} placeholder="fullname" value={fullname} onChange={e=>setFullname(e.target.value)} required />
                         <span className={styles.span__form_input}> 
                             <input placeholder="password" required value={password} type={inputType} onChange={e=>setPassword(e.target.value)} />
@@ -114,7 +114,7 @@ function RegisterView(props) {
                         <button className={styles.btn}
                             disabled={isLoading? true: false}
                         >
-                            <span>Register</span>
+                            <span>Done</span>
                             {isLoading? <Loader />:''}
                         </button>
                     </form>
