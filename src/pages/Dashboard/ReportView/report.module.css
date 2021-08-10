@@ -7,34 +7,6 @@
     overflow-y: scroll;
 }
 .container{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-    /* width: 75%; */
-}
-
-.box{
-    width: 20%;
-    height: 150px;
-    background-color: white;
-    border: .5px solid lightgrey;
-    border-radius: 5px;
-    /* box-shadow: rgba(187, 179, 179, 0.3) 0px 1px 15px 0px, rgba(239, 241, 243, 0.15) 0px 1px 3px 1px; */
-    margin: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.box:hover{
-    cursor: pointer;
-    /* background-color: rgb(243, 243, 243); */
-}
-
-.container2{
     width: 90%; 
     display: flex;
     flex-direction: row;
@@ -42,30 +14,54 @@
     /* justify-content: space-between; */
 }
 
-.container2 p{
+.container p{
     color: grey;
     font-size: .85rem;
     font-weight: bold;
 }
 
-.container2 div{
+.doughnut {
     width: 35%;
-    padding: 1rem;
     background-color: white;
     box-shadow: rgba(226, 226, 226, 0.3) 0px 1px 5px 0px, rgba(239, 241, 243, 0.15) 0px 1px 3px 1px;
     margin: .5rem;
 }
 
+.doughnut_header{
+    background-color: rgb(248, 246, 246);
+    width: auto;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn_arrow {
+    padding: .2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+.btn_arrow:hover {
+    background-color: white;
+    cursor: pointer;
+    border:  .5px solid lightgrey;
+}
+.doughnut_main{
+    padding: 1rem;
+}
 
 
 @media (min-width: 0px) and (max-width: 767px) { 
     .fluid{
         width: 100%;
     }
-    .container, .container2{
+    .container{
         flex-direction: column;
     }
-    .container2 div{
+    .container div{
         width: 100%
     }
     .box{

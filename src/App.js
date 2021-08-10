@@ -6,6 +6,7 @@ import DashboardHome from './pages/Dashboard/HomeView/home'
 import UsersView from './pages/Dashboard/UsersView/users'
 import VendorsView from './pages/Dashboard/VendorsView/vendors'
 import AdminsView from './pages/Dashboard/AdminsView/admins'
+import ReportView from './pages/Dashboard/ReportView/reports'
 import ProtectedRoute from './components/Protectedroute/protectedRoute';
 import Errorpage from './pages/404.js'
 
@@ -19,6 +20,7 @@ function App() {
       <ProtectedRoute path='/dashboard/users' component={UsersView} exact />
       <ProtectedRoute path='/dashboard/vendors' component={VendorsView} exact />
       <ProtectedRoute path='/dashboard/admins' component={AdminsView} exact />
+      <ProtectedRoute path='/dashboard/reports' component={ReportView} exact />
       <Route path="*" component={Errorpage} />
     </Switch>
   );

@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './sidenav.module.css';
 import { FiUsers, FiLogOut } from 'react-icons/fi'
 import { MdReport } from 'react-icons/md'
-import { AiFillSetting } from 'react-icons/ai'
+import { AiFillSetting, AiFillPieChart } from 'react-icons/ai'
 import { GiShop } from 'react-icons/gi'
 import { RiDashboardFill, RiAdminFill } from 'react-icons/ri' 
 import { Link, useHistory } from 'react-router-dom'
@@ -51,9 +51,11 @@ export default function SideBar(){
             </Link>
            
             <div style={{height:'.5px', backgroundColor:"lightgrey"}} />
-            <p>
-                <MdReport color="white" style={{paddingRight:'5px'}}/>Reports
-            </p>
+            <Link style={{color: 'grey', textDecoration: 'none'}} to="/dashboard/reports">
+                <p>
+                    <AiFillPieChart color="white" style={{paddingRight:'5px'}}/>Reports
+                </p>
+            </Link>
             <p>
                 <AiFillSetting color="white" style={{paddingRight:'5px'}}/>Roles and Priviledges
             </p>

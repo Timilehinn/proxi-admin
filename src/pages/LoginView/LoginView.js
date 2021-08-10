@@ -43,7 +43,7 @@ function LoginView() {
             setErrorBox('flex');
             const err = error
             if (err.response) {
-                setErrMsg(err.response.data.message)
+                setErrMsg(err.response.data.message ||  'An error occurred, Try again.')
             }
         })
     }

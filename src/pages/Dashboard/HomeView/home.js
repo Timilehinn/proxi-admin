@@ -32,7 +32,6 @@ function Home() {
 
     const _daily = {
         labels: [
-            `Total: ${formatCurrency(daily?.dailytotal?.credit + daily?.dailytotal?.debit)}`,
             `Debits: ${formatCurrency(daily?.dailytotal?.debit)}`, 
             `Credits: ${formatCurrency(daily?.dailytotal?.credit)}`,
         ],
@@ -41,12 +40,12 @@ function Home() {
             label: 'Number of transactions',
             data: daily.daily,
             backgroundColor: [
-              'rgba(54, 162, 235, 0.2)',
               'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)'
             ],
             borderColor: [
-              'rgba(54, 162, 235, 1)',
               'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)'
             ],
             borderWidth: 1,
           },
@@ -56,7 +55,6 @@ function Home() {
     const _weekly = {
         // labels: ['Debits', 'Credits'],
         labels: [
-            `Total: ${formatCurrency(weekly?.weeklytotal?.credit + weekly?.weeklytotal?.debit)}`,
             `Debits: ${formatCurrency(weekly?.weeklytotal?.debit)}`, 
             `Credits: ${formatCurrency(weekly?.weeklytotal?.credit)}`,
         ],
@@ -65,12 +63,12 @@ function Home() {
             label: 'Number of transactions',
             data: weekly.weekly,
             backgroundColor: [
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 99, 132, 0.2)'
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)'
             ],
             borderColor: [
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 99, 132, 1)'
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)'
             ],
             borderWidth: 1,
           },
@@ -78,7 +76,7 @@ function Home() {
     };
 
     const dailyReport=()=>{
-        axios.get(`${url.baseUrl}v1/admin/transaction-report/daily`, {
+        axios.get(`${url.baseUrl}v1/admin/transaction-report/daily?day=0`, {
             headers: {
                 'Authorization': 'Bearer ' + token
         }})
@@ -93,7 +91,7 @@ function Home() {
     }
 
     const weeklyReport=()=>{
-        axios.get(`${url.baseUrl}v1/admin/transaction-report/weekly`, {
+        axios.get(`${url.baseUrl}v1/admin/transaction-report/weekly?week=0`, {
             headers: {
                 'Authorization': 'Bearer ' + token
         }})
@@ -196,16 +194,22 @@ function Home() {
 
                 <div className={styles.container2}>
                     <div>
-                        <h3>Today</h3>
+                        <h3>Today: </h3>
                         <Doughnut 
                             data={_daily}
                         />
+                        <p>
+                            Total amount: {formatCurrency(daily?.dailytotal?.credit + daily?.dailytotal?.debit)}
+                        </p>
                     </div>
                     <div>
                         <h3>This week</h3>
                         <Doughnut 
                             data={_weekly}
                         />
+                        <p>
+                            Total amount: {formatCurrency(weekly?.weeklytotal?.debit + weekly?.weeklytotal?.credit)}
+                        </p>
                     </div>
                     {/* <span>
                         <h5>Transaction reports</h5>
