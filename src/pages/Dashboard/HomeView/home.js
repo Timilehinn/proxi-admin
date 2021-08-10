@@ -32,20 +32,20 @@ function Home() {
 
     const _daily = {
         labels: [
-            `Debits: ${formatCurrency(daily?.dailytotal?.debit)}`, 
             `Credits: ${formatCurrency(daily?.dailytotal?.credit)}`,
+            `Debits: ${formatCurrency(daily?.dailytotal?.debit)}`
         ],
         datasets: [
           {
             label: 'Number of transactions',
             data: daily.daily,
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)'
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 99, 132, 0.2)'
             ],
             borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)'
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 99, 132, 1)'
             ],
             borderWidth: 1,
           },
@@ -55,20 +55,20 @@ function Home() {
     const _weekly = {
         // labels: ['Debits', 'Credits'],
         labels: [
-            `Debits: ${formatCurrency(weekly?.weeklytotal?.debit)}`, 
             `Credits: ${formatCurrency(weekly?.weeklytotal?.credit)}`,
+            `Debits: ${formatCurrency(weekly?.weeklytotal?.debit)}`
         ],
         datasets: [
           {
             label: 'Number of transactions',
             data: weekly.weekly,
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)'
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 99, 132, 0.2)'
             ],
             borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)'
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 99, 132, 1)'
             ],
             borderWidth: 1,
           },
