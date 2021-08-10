@@ -11,7 +11,7 @@ import { BsArrowRepeat } from 'react-icons/bs'
 import { RiExchangeDollarFill } from 'react-icons/ri'
 import { BiTransferAlt } from 'react-icons/bi'
 import { url } from '../../../utils/urls'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import { Doughnut } from 'react-chartjs-2';
 import { formatCurrency } from '../../../utils/formatCurrency';
 
@@ -191,10 +191,9 @@ function Home() {
                     </div>
                 </div>
 
-
                 <div className={styles.container2}>
                     <div>
-                        <h3>Today: </h3>
+                        <h4 style={{color: 'grey'}}>Today </h4>
                         <Doughnut 
                             data={_daily}
                         />
@@ -203,7 +202,7 @@ function Home() {
                         </p>
                     </div>
                     <div>
-                        <h3>This week</h3>
+                        <h4 style={{color: 'grey'}}>This week</h4>
                         <Doughnut 
                             data={_weekly}
                         />
@@ -211,9 +210,11 @@ function Home() {
                             Total amount: {formatCurrency(weekly?.weeklytotal?.debit + weekly?.weeklytotal?.credit)}
                         </p>
                     </div>
-                    {/* <span>
-                        <h5>Transaction reports</h5>
-                    </span> */}
+                    <span>
+                        <Link to="/dashboard/reports">
+                            <h5>View reports</h5>
+                        </Link>
+                    </span>
                 </div>
             </div>
             
