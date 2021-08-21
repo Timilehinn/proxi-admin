@@ -43,7 +43,9 @@ function LoginView() {
             setErrorBox('flex');
             const err = error
             if (err.response) {
-                setErrMsg(err.response.data.message ||  'An error occurred, Try again.')
+                setErrMsg(err.response.data.message)
+            }else{
+                setErrMsg('Something went wrong, Try again.')
             }
         })
     }
@@ -66,7 +68,7 @@ function LoginView() {
                     {isLoading? <Loader />:''}
                 </button>
             </form>
-            <p style={{fontSize: '.8rem', color: 'grey'}}>Foodapp Admin Panel v1.0</p>
+            <p style={{fontSize: '.8rem', color: 'grey'}}>Proxi Admin Panel v1.0</p>
         </main>
     )
 }
