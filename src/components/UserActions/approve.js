@@ -39,7 +39,7 @@ function Approve(props) {
     const approveUsers=async()=>{
         let token = localStorage.getItem("mfa_token");
         setIsDeleting(true)
-        const res = await axios.post(`${url.baseUrl}v1/admin/approve-users`,
+        const res = await axios.post(`${url.baseUrl}/admin/approve-users`,
         {ids: props.selection},{
             headers: {
                 'Authorization': 'Bearer ' + token

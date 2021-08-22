@@ -3,10 +3,11 @@ import styles from './dashheader.module.css';
 import {AuthContext} from '../../contexts/authContextApi';
 import { FaBell, FaTimes } from 'react-icons/fa';
 import { FiUsers, FiLogOut } from 'react-icons/fi';
-import { MdReport } from 'react-icons/md';
+import { MdCropLandscape } from 'react-icons/md';
 import { AiFillSetting, AiFillPieChart } from 'react-icons/ai';
 import { GiShop } from 'react-icons/gi';
 import { RiDashboardFill, RiAdminFill } from 'react-icons/ri';
+import { GrUnorderedList } from 'react-icons/gr'
 import { Link, useHistory } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
@@ -82,6 +83,14 @@ function DashHeader(prop) {
                     <Link style={{color: 'white', textDecoration: 'none'}} to="/dashboard/admins">
                         <p style={{color: "white"}}><RiAdminFill color="white" style={{paddingRight:'5px'}}/>Admins</p>
                     </Link>
+                    
+                    <Link style={{color: 'white', textDecoration: 'none'}} to="/dashboard/plans">
+                        <p style={{color: "white"}}><MdCropLandscape color="white" style={{paddingRight:'5px'}}/>Plans</p>
+                    </Link>
+                    <Link style={{color: 'white', textDecoration: 'none'}} to="/dashboard/categories">
+                        <p style={{color: "white"}}><GrUnorderedList color="white" style={{paddingRight:'5px'}}/>Categories</p>
+                    </Link>
+            
                     <div style={{height:'1px', backgroundColor:"lightgrey"}} />
                     <Link style={{color: 'white', textDecoration: 'none'}} to="/dashboard/reports">
                         <p style={{color: "white"}}><AiFillPieChart color="white" style={{paddingRight:'5px'}}/>Reports</p>

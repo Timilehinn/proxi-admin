@@ -32,7 +32,7 @@ function RegisterView(props) {
     const Register = async (e)=>{
         e.preventDefault();
         setIsLoading(true)
-        axios.post(`${url.baseUrl}v1/admin/register`, { email, password, phone, fullname })
+        axios.post(`${url.baseUrl}/admin/register`, { email, password, phone, fullname })
         .then(res=>{
             if(res.data.status){
                 setIsLoading(false)
@@ -64,7 +64,7 @@ function RegisterView(props) {
 
     const verifyLink = async(req, res)=>{
         setIsLoading(true)
-        axios.get(`${url.baseUrl}v1/admin/verify-invite`,
+        axios.get(`${url.baseUrl}/admin/verify-invite`,
         {
             headers: {
                 'Authorization': 'Bearer ' + token

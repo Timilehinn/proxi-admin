@@ -29,7 +29,7 @@ function LoginView() {
     const Login = async (e)=>{
         e.preventDefault();
         setIsLoading(true)
-        axios.post(`${url.baseUrl}v1/auth/login`, { email, password })
+        axios.post(`${url.baseUrl}/auth/login`, { email, password })
         .then(res=>{
             setIsLoading(false);
             setAuth(true);

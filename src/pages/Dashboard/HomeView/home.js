@@ -76,7 +76,7 @@ function Home() {
     };
 
     const dailyReport=()=>{
-        axios.get(`${url.baseUrl}v1/admin/transaction-report/daily?day=0`, {
+        axios.get(`${url.baseUrl}/admin/transaction-report/daily?day=0`, {
             headers: {
                 'Authorization': 'Bearer ' + token
         }})
@@ -91,7 +91,7 @@ function Home() {
     }
 
     const weeklyReport=()=>{
-        axios.get(`${url.baseUrl}v1/admin/transaction-report/weekly?week=0`, {
+        axios.get(`${url.baseUrl}/admin/transaction-report/weekly?week=0`, {
             headers: {
                 'Authorization': 'Bearer ' + token
         }})
@@ -112,7 +112,7 @@ function Home() {
 
 
     useEffect(()=>{
-        axios.get(`${url.baseUrl}v1/admin/all-users-count`, {
+        axios.get(`${url.baseUrl}/admin/all-users-count`, {
             headers: {
                 'Authorization': 'Bearer ' + token
         }})
@@ -127,7 +127,7 @@ function Home() {
         })
 
         //daily active users and vendors
-        axios.get(`${url.baseUrl}v1/admin/daily-active-users`, {
+        axios.get(`${url.baseUrl}/admin/daily-active-users`, {
             headers: {
                 'Authorization': 'Bearer ' + token
             }
@@ -142,7 +142,7 @@ function Home() {
         })
 
         //transactions
-        axios.get(`${url.baseUrl}v1/admin/transactions`,{
+        axios.get(`${url.baseUrl}/admin/transactions`,{
             headers: {
                 'Authorization': 'Bearer ' + token
             }

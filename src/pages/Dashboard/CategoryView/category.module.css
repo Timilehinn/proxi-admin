@@ -1,0 +1,98 @@
+
+.box{
+    width: 20%;
+    height: 150px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(187, 179, 179, 0.3) 0px 1px 15px 0px, rgba(239, 241, 243, 0.15) 0px 1px 3px 1px;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around; 
+    align-items: flex-start;
+    width: 100%;
+}
+
+
+.grid{
+    height: 350px;
+    width: 500px;
+    margin-bottom: 60px;
+}
+
+.grid_header{
+    display: flex;
+    margin: 1rem; 
+    align-items: center;
+}
+
+.addplan{
+    height: 300px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.addplan input{
+    padding-left: 1rem;
+    border: .75px solid lightgrey;
+    height: 45px;
+    margin-bottom: .5rem;
+    border-radius: .3rem; 
+    width: auto;
+}
+
+.container2 div{
+    width: 90%;
+    background-color: white;
+    box-shadow: rgba(187, 179, 179, 0.3) 0px 1px 5px 0px, rgba(239, 241, 243, 0.15) 0px 1px 3px 1px;
+    margin-bottom: .5rem;
+    padding: 1rem
+}
+
+
+@media (min-width: 0px) and (max-width: 767px) { 
+    .container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .grid{
+        width: 95%
+    }
+    .addplan{
+        width: 95%
+    }
+    .addplan input{
+    }
+}
+
+
+/* Media Query for Tablets Ipads portrait mode */ 
+@media (min-width: 768px) and (max-width: 1024px){ 
+    .container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+} 
+  
+  /* Media Query for Laptops and Desktops */ 
+@media (min-width: 1025px) and (max-width: 1280px){ 
+
+}
+  
+/* Media Query for Large screens */ 
+@media (min-width: 1281px) { 
+
+} 
+
+@media only screen and(max-width: 700px) { 
+
+} 
