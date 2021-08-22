@@ -43,7 +43,7 @@ function DashHeader(prop) {
                         <div /><div /><div />
                     </div>
                     <div className={styles.nav_col1}>
-                        <h3 className={styles.logo}>FoodApp</h3>
+                        <h3 className={styles.logo}>Proxi</h3>
                         <h4 style={{color:'grey'}}>{prop.title}</h4>
                     </div>
                     <div className={styles.navitems}>
@@ -55,7 +55,7 @@ function DashHeader(prop) {
             <div className={styles.sideBar}  style={{zIndex:'1',overflowX:'scroll',transform:`translateX(${showSideBar}%)`}}>
                 <div className={styles.sidebar_inner_container}>
                     <div className={styles.cancel}>
-                        <h2 style={{color: 'white'}}>FoodApp</h2>
+                        <h2 style={{color: 'white'}}>Proxi</h2>
                         <IconButton aria-label="close" style={{width: 'auto'}} onClick={closeDrawer}>
                             <CloseIcon style={{color: 'white'}} />
                         </IconButton>
