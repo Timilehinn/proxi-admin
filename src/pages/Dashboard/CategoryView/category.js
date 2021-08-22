@@ -223,13 +223,13 @@ function CategoryView() {
                     <div className={styles.addplan} >
                         <p>Add New Category</p>
                         <input value={newCategory} onChange={e=>setNewCategory(e.target.value)} placeholder= "category name" />
-                        <button onClick={()=>addNewCategory()} style={{padding: '.5rem', border: '.5px solid lightgrey', backgroundColor: 'white'}}>add category</button>
+                        <button onClick={()=>addNewCategory()} style={{color: 'white', backgroundColor: 'rgb(13, 13, 160)', padding: '.5rem', borderRadius: '.2rem', border: '0px', fontWeight: 'bold', cursor: 'pointer'}}>Add Category</button>
                     </div>
                 </div>
                     
                 <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                     {/* <DialogTitle id="form-dialog-title">Update Plan Details</DialogTitle> */}
-                    <h3 style={{margin: '1.5rem'}}>Update category</h3>
+                    <h3 style={{margin: '1.5rem'}}>Edit category</h3>
                     <DialogContent>
                         <TextField
                             autoFocus

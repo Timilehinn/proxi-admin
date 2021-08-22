@@ -113,9 +113,13 @@ function PlansView() {
     };
 
     const addNewPlan = () =>{
+        if(newPlanName === '' ){
+            return toast.dark('Enter a plan name to proceed', _toast);
+        }
         if(newPlanAmount < 500){
             return toast.dark('Plan amount should be atleast N500', _toast);
         }
+
         axios.post(`${url.baseUrl}/admin/plans/add`,
         {
             newPlanName, 
@@ -157,6 +161,9 @@ function PlansView() {
     }
 
     const updatePlan = () =>{
+        if(planName === '' ){
+            return toast.dark('Enter a new plan name to proceed', _toast);
+        }
         if(planAmount < 500){
             return toast.dark('Amount should be atleast N500',_toast);
         }
@@ -230,7 +237,7 @@ function PlansView() {
                         <p>Add New Plan</p>
                         <input value={newPlanName} onChange={e=>setNewPlanName(e.target.value)} placeholder= "plan name" />
                         <input value={newPlanAmount} onChange={e=>setNewPlanAmount(e.target.value)} placeholder="amount per meal" type="number" />
-                        <button onClick={()=>addNewPlan()} style={{padding: '.5rem', border: '.5px solid lightgrey', backgroundColor: 'white'}}>add plan</button>
+                        <button onClick={()=>addNewPlan()} style={{color: 'white', backgroundColor: 'rgb(13, 13, 160)', padding: '.5rem', borderRadius: '.2rem', border: '0px', fontWeight: 'bold', cursor: 'pointer'}}>Add Plan</button>
                     </div>
                 </div>
                     
