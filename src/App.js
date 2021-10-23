@@ -21,6 +21,7 @@ function App() {
       <ProtectedRoute path='/dashboard/vendors' component={VendorsView} exact />
       <ProtectedRoute path='/dashboard/admins' component={AdminsView} exact />
       <ProtectedRoute path='/dashboard/reports' component={ReportView} exact />
+      <ProtectedRoute path='/dashboard/adverts' component={ReportView} exact />
       <Route path="*" component={Errorpage} />
     </Switch>
   );

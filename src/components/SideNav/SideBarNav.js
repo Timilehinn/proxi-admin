@@ -43,6 +43,13 @@ export default function SideBar(){
                 </p>
             </Link>
             
+            <Link style={{color: 'grey', textDecoration: 'none'}} to="/dashboard/adverts">
+                <p>
+                    <GiShop color="white" 
+                    style={{paddingRight:'5px'}}/>Adverts
+                </p>
+            </Link>
+
             <Link style={{color: 'grey', textDecoration: 'none'}} to="/dashboard/admins">
                 <p>
                     <RiAdminFill color="white" 
