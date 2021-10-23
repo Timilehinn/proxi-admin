@@ -15,7 +15,7 @@ import { url } from '../../utils/urls'
     function refreshValidatePage(){
       let token = localStorage.getItem("mfa_token");
       if (token) {
-        axios.get(`${url.baseUrl}v1/auth/verifyjwt`, {
+        axios.get(`${url.baseUrl}/auth/verifyjwt`, {
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',

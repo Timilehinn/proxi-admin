@@ -76,7 +76,7 @@ function Reports() {
     };
 
     const dailyReport=()=>{
-        axios.get(`${url.baseUrl}v1/admin/transaction-report/daily?day=${day}`, {
+        axios.get(`${url.baseUrl}/admin/transaction-report/daily?day=${day}`, {
             headers: {
                 'Authorization': 'Bearer ' + token
         }})
@@ -91,7 +91,7 @@ function Reports() {
     }
 
     const weeklyReport=()=>{
-        axios.get(`${url.baseUrl}v1/admin/transaction-report/weekly?week=${week}`, {
+        axios.get(`${url.baseUrl}/admin/transaction-report/weekly?week=${week}`, {
             headers: {
                 'Authorization': 'Bearer ' + token
         }})

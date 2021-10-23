@@ -39,7 +39,7 @@ function Disable(props) {
     const disableUsers=async()=>{
         let token = localStorage.getItem("mfa_token");
         setIsDeleting(true)
-        const res = await axios.post(`${url.baseUrl}v1/admin/disable-users`,
+        const res = await axios.post(`${url.baseUrl}/admin/disable-users`,
         {ids: props.selection},{
             headers: {
                 'Authorization': 'Bearer ' + token

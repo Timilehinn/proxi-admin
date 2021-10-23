@@ -1,4 +1,4 @@
 export const url = {
-    baseUrl: "http://localhost:3020/",
-    photoUrl: "http://localhost:3020/",
+    baseUrl: "https://proxi-admin-api.herokuapp.com/v1",
+    photoUrl: "https://proxi-admin-api.herokuapp.com/v1",
 }
