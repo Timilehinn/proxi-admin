@@ -30,7 +30,7 @@ import { convertDate } from '../../../utils/date'
 const ModalHeader = (prop)=>{
     return(
         <div style={{display: 'flex', width:'100%', marginBottom: '30px', alignItems: 'center', flexDirection: 'column'}}>
-            <div style={{backgroundImage:`url(${prop.image})`, backgroundPosition: 'center',
+            <div style={{backgroundImage:`url(${url.baseUrl+prop.image})`, backgroundPosition: 'center',
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '150px', backgroundColor: 'white'}}>
             <h1 style={{color: 'grey'}}>{prop.image? '':'NO IMAGE' }</h1>
@@ -119,7 +119,7 @@ function VendorsView() {
     ];
 
     const getVendors =()=>{
-        axios.get(`${url.baseUrl}v1/admin/get-all-users/vendors`, {
+        axios.get(`${url.baseUrl}/admin/get-all-users/vendors`, {
             headers: {
                 'Authorization': 'Bearer ' + token
             }
@@ -143,7 +143,7 @@ function VendorsView() {
         setSelection([id])
         const vendorActivity = async () =>{
             setGettingUser(true)
-            const res = await axios.get(`${url.baseUrl}v1/admin/get-user-activity/vendor/${id}`, {
+            const res = await axios.get(`${url.baseUrl}/admin/get-user-activity/vendor/${id}`, {
                 headers: {
                     'Authorization': 'Bearer ' + token
                 }

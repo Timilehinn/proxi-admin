@@ -7,6 +7,9 @@ import UsersView from './pages/Dashboard/UsersView/users'
 import VendorsView from './pages/Dashboard/VendorsView/vendors'
 import AdminsView from './pages/Dashboard/AdminsView/admins'
 import ReportView from './pages/Dashboard/ReportView/reports'
+import PlansView from './pages/Dashboard/PlansView/plans'
+import CategoryView from './pages/Dashboard/CategoryView/category'
+import AdvertView from './pages/Dashboard/AdvertView'
 import ProtectedRoute from './components/Protectedroute/protectedRoute';
 import Errorpage from './pages/404.js'
 
@@ -21,7 +24,9 @@ function App() {
       <ProtectedRoute path='/dashboard/vendors' component={VendorsView} exact />
       <ProtectedRoute path='/dashboard/admins' component={AdminsView} exact />
       <ProtectedRoute path='/dashboard/reports' component={ReportView} exact />
-      <ProtectedRoute path='/dashboard/adverts' component={ReportView} exact />
+      <ProtectedRoute path='/dashboard/adverts' component={AdvertView} exact />
+      <ProtectedRoute path='/dashboard/plans' component={PlansView} exact />
+      <ProtectedRoute path='/dashboard/categories' component={CategoryView} exact />
       <Route path="*" component={Errorpage} />
     </Switch>
   );

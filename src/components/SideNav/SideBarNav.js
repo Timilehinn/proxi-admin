@@ -5,7 +5,9 @@ import { MdReport } from 'react-icons/md'
 import { AiFillSetting, AiFillPieChart } from 'react-icons/ai'
 import { GiShop } from 'react-icons/gi'
 import { RiDashboardFill, RiAdminFill } from 'react-icons/ri' 
+import { GrUnorderedList } from 'react-icons/gr';
 import { Link, useHistory } from 'react-router-dom'
+import { MdCropLandscape } from 'react-icons/md';
 
 
 export default function SideBar(){
@@ -54,6 +56,18 @@ export default function SideBar(){
                 <p>
                     <RiAdminFill color="white" 
                     style={{paddingRight:'5px'}}/>Admins
+                </p>
+            </Link>
+            <Link style={{color: 'grey', textDecoration: 'none'}} to="/dashboard/plans">
+                <p>
+                    <MdCropLandscape color="white" 
+                    style={{paddingRight:'5px'}}/>Plans
+                </p>
+            </Link>
+            <Link style={{color: 'grey', textDecoration: 'none'}} to="/dashboard/categories">
+                <p>
+                    <GrUnorderedList color="white" 
+                    style={{paddingRight:'5px'}}/>Categories
                 </p>
             </Link>
            

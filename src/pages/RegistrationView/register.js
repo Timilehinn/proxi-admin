@@ -32,7 +32,7 @@ function RegisterView(props) {
     const Register = async (e)=>{
         e.preventDefault();
         setIsLoading(true)
-        axios.post(`${url.baseUrl}v1/admin/register`, { email, password, phone, fullname })
+        axios.post(`${url.baseUrl}/admin/register`, { email, password, phone, fullname })
         .then(res=>{
             if(res.data.status){
                 setIsLoading(false)
@@ -51,6 +51,8 @@ function RegisterView(props) {
             const err = error
             if (err.response) {
                 setErrMsg(err.response.data.message)
+            }else{
+                setErrMsg('Something went wrong, Try again.')
             }
             console.log(err)
         })
@@ -62,7 +64,7 @@ function RegisterView(props) {
 
     const verifyLink = async(req, res)=>{
         setIsLoading(true)
-        axios.get(`${url.baseUrl}v1/admin/verify-invite`,
+        axios.get(`${url.baseUrl}/admin/verify-invite`,
         {
             headers: {
                 'Authorization': 'Bearer ' + token
@@ -118,7 +120,7 @@ function RegisterView(props) {
                             {isLoading? <Loader />:''}
                         </button>
                     </form>
-                    <p style={{fontSize: '.8rem', color: 'grey'}}>Foodapp Admin Panel v1.0</p>
+                    <p style={{fontSize: '.8rem', color: 'grey'}}>Proxi Admin Panel v1.0</p>
                 </>
             ):(
                 <div style={{ borderRadius: '1rem', textAlign: 'center', width: '200px', backgroundColor: 'rgb(248,208,200)', padding: '1rem', border: '.5px solid grey'}}>

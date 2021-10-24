@@ -65,7 +65,7 @@ function AdminView() {
     ];
 
     const getAdmins =()=>{
-        axios.get(`${url.baseUrl}v1/admin/get-all-users/admins`, {
+        axios.get(`${url.baseUrl}/admin/get-all-users/admins`, {
             headers: {
                 'Authorization': 'Bearer ' + token
             }
@@ -97,7 +97,7 @@ function AdminView() {
     };
 
     const sendInvite = async () =>{
-        axios.post(`${url.baseUrl}v1/admin/send-invite`,
+        axios.post(`${url.baseUrl}/admin/send-invite`,
             { email },
             {
                 headers: {

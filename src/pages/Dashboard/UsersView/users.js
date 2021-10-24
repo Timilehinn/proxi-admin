@@ -104,7 +104,7 @@ function UsersView() {
     ];
 
     const fetchUsers =()=>{
-        axios.get(`${url.baseUrl}v1/admin/get-all-users/users`, {
+        axios.get(`${url.baseUrl}/admin/get-all-users/users`, {
             headers: {
                 'Authorization': 'Bearer ' + token
         }})
@@ -127,7 +127,7 @@ function UsersView() {
         setSelection([id])
         const userActivity = async () =>{
             setGettingUser(true)
-            const res = await axios.get(`${url.baseUrl}v1/admin/get-user-activity/user/${id}`,
+            const res = await axios.get(`${url.baseUrl}/admin/get-user-activity/user/${id}`,
             {
                 headers: {
                     'Authorization': 'Bearer ' + token
