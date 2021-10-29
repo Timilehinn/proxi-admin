@@ -6,7 +6,7 @@ import { FiUsers, FiLogOut } from 'react-icons/fi';
 import { MdCropLandscape } from 'react-icons/md';
 import { AiFillSetting, AiFillPieChart } from 'react-icons/ai';
 import { GiShop } from 'react-icons/gi';
-import { RiDashboardFill, RiAdminFill } from 'react-icons/ri';
+import { RiDashboardFill, RiAdminFill, RiAdvertisementFill } from 'react-icons/ri';
 import { GrUnorderedList } from 'react-icons/gr'
 import { Link, useHistory } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
@@ -78,6 +78,12 @@ function DashHeader(prop) {
                         <p>
                             <GiShop color="white" 
                             style={{paddingRight:'5px'}}/>Vendors
+                        </p>
+                    </Link>
+                    <Link style={{color: 'white', textDecoration: 'none'}} to="/dashboard/adverts">
+                        <p>
+                            <RiAdvertisementFill color="white" 
+                            style={{paddingRight:'5px'}}/>Adverts
                         </p>
                     </Link>
                     <Link style={{color: 'white', textDecoration: 'none'}} to="/dashboard/admins">

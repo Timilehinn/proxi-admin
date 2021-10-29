@@ -4,7 +4,7 @@ import { FiUsers, FiLogOut } from 'react-icons/fi'
 import { MdReport } from 'react-icons/md'
 import { AiFillSetting, AiFillPieChart } from 'react-icons/ai'
 import { GiShop } from 'react-icons/gi'
-import { RiDashboardFill, RiAdminFill } from 'react-icons/ri' 
+import { RiDashboardFill, RiAdminFill, RiAdvertisementFill } from 'react-icons/ri' 
 import { GrUnorderedList } from 'react-icons/gr';
 import { Link, useHistory } from 'react-router-dom'
 import { MdCropLandscape } from 'react-icons/md';
@@ -47,7 +47,7 @@ export default function SideBar(){
             
             <Link style={{color: 'grey', textDecoration: 'none'}} to="/dashboard/adverts">
                 <p>
-                    <GiShop color="white" 
+                    <RiAdvertisementFill color="white" 
                     style={{paddingRight:'5px'}}/>Adverts
                 </p>
             </Link>
